@@ -35,6 +35,12 @@ npm test
 
 The app supports create, read, update and delete for students.
 
+## Extra engineering feature — Search + CSV export
+
+The CRUD app now includes a local search/filter workflow and one-click CSV export of the currently filtered students. This makes the CRUD exercise useful as a small admin workflow rather than only a database demo.
+
+Verify it by creating several students, searching by name/email/course, filtering by course, and clicking **Export CSV**.
+
 ## Repository navigation
 
 - Global guide: [`../../../README.md`](../../../README.md)
