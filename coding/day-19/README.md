@@ -6,14 +6,28 @@
 
 - [`.github/workflows/ci.yml`](./.github/workflows/ci.yml) — GitHub Actions CI workflow.
 - [`render.yaml`](./render.yaml) — Render deployment configuration.
+- [`smoke-check.mjs`](./smoke-check.mjs) — release preflight validation.
 
-## Local inspection
+## Extra engineering feature — Release preflight gate
+
+`smoke-check.mjs` validates the repository structure and required package scripts before CI accepts the change. This catches broken paths/configuration before deployment.
+
+## Local verification
 
 ```bash
 cd coding/day-19
-cat render.yaml
-cat .github/workflows/ci.yml
+node smoke-check.mjs
 ```
+
+Expected final line:
+
+```text
+Release preflight passed.
+```
+
+## CI
+
+The workflow installs the Day 5 backend and AI lab dependencies and then runs the release preflight.
 
 ## Execution boundary
 
