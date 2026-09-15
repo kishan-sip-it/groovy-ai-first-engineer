@@ -1,3 +1,5 @@
+<!-- READ THIS FIRST: this file summarizes implementation boundaries and verification status. Use README.md for navigation and RUNBOOK.md for exact commands. -->
+
 # 30-Day Coding Status
 
 ## Implemented in this umbrella repository
@@ -11,6 +13,18 @@
 - Day 14 pure-SDK agent architecture and framework comparison
 - Day 15 real-use-case standup agent design and tool implementation
 - Day 19 CI and Render deployment configuration
+- Repository-wide navigation and execution runbook
+
+## Runnable entry points
+
+- Day 2: separate `groovy-day-02-todo-app` repository
+- Day 5: `coding/day-05/student-crud`
+- Days 6–15: `coding/days-06-15-ai-lab`
+- Day 19: `coding/day-19` configuration
+
+## Verification boundary
+
+The repository contains exact local commands and health checks for runnable projects. Live provider/API verification is conditional on valid credentials. PostgreSQL CRUD verification requires a local PostgreSQL instance. Render deployment verification requires an actual connected Render/GitHub environment.
 
 ## Requires external/company state and is intentionally not fabricated
 
