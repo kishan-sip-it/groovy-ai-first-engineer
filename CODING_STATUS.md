@@ -1,37 +1,51 @@
-<!-- READ THIS FIRST: this file summarizes implementation boundaries and verification status. Use README.md for navigation and RUNBOOK.md for exact commands. -->
+<!-- READ THIS FIRST: this file summarizes implementation boundaries and submission verification. Use README.md for navigation and RUNBOOK.md for exact commands. -->
 
 # 30-Day Coding Status
+
+## Submission readiness
+
+**Repository/code submission:** READY
+
+**Live Vercel submission hub:** `https://groovy-ai-gm994iph4-kishan11.vercel.app`
+
+**Mini-project demos deployed:** 3 / 3
+
+- ✅ Mini-Project 1 — Student Management CRUD
+- ✅ Mini-Project 2 — Smart Doc Q&A
+- ✅ Mini-Project 3 — Custom Agent
+
+The three hosted demos are intentionally self-contained so a reviewer can open and exercise them without requiring local databases or provider credentials. The fuller engineering implementations remain in the repository.
 
 ## Checklist-to-code matrix
 
 | Day | Checklist deliverable | Repository status |
 |---|---|---|
-| 1 | Hello AI + setup evidence | Done for repo-side evidence; Slack/API access remains external |
-| 2 | React + Node TODO app | **Done** in separate `groovy-day-02-todo-app`; Kanban + command palette added |
-| 3 | `prompt-library.md` with 10 templates | **Done** + prompt selection matrix |
-| 4 | LLM comparison report | **Done** + weighted scorecard |
-| 5 | Student Management CRUD, React + Node + Postgres | **Done** + search/filter + CSV export |
-| 6 | Anthropic first call + CLI chatbot | **Implemented**; live call requires credentials |
-| 7 | OpenAI/Gemini multi-provider CLI + benchmark | **Implemented**; live benchmark requires credentials |
-| 8 | Streaming + retry/error hygiene | **Implemented** |
-| 9 | Prompt caching / telemetry / codebase explainer | **Implemented** where credentials or service state are not required |
-| 10 | Smart Doc Q&A | **Implemented** locally in AI lab |
-| 11 | Embeddings + vector store RAG upgrade | **Implemented** with local/vector-adapter path |
-| 12 | Chunking comparison | **Done** as comparison report/framework |
-| 13 | Tool-use / function-calling agent | **Implemented** |
-| 14 | Multi-step agent + framework comparison + memory | **Implemented** as pure-SDK architecture plus comparison |
-| 15 | Real-use-case agent | **Implemented** as standup assistant + tool loop |
-| 16 | Assigned real Groovy repo onboarding | **External dependency** — requires actual assigned client repo |
-| 17 | First real PR | **External dependency** — requires actual client repository and reviewer |
-| 18 | Review 3 cohort PRs | **External dependency** — requires cohort PR access |
-| 19 | CI/CD + deploy | **Implemented** with CI + Render config + release preflight; live deploy requires credentials |
-| 20–24 | Real client capstone | **External dependency** — requires assigned client feature/repo and senior feedback |
-| 25 | Stage 1 assessment | **External process** |
-| 26 | Result / Stage 2 allocation | **External process** |
-| 27 | Stage 1 retro | **External process** |
-| 28 | Stage 2 mentor pairing | **External process** |
-| 29 | Stage 2 client project deep-dive | **External dependency** |
-| 30 | First Stage 2 sprint ticket | **External dependency** |
+| 1 | Hello AI + setup evidence | ✅ Repo-side evidence; company Slack/API-access portions remain external |
+| 2 | React + Node TODO app | ✅ Done in separate `groovy-day-02-todo-app`; Kanban + command palette added |
+| 3 | `prompt-library.md` with 10 templates | ✅ Done + prompt selection matrix |
+| 4 | LLM comparison report | ✅ Report framework + weighted scorecard; actual five-prompt result table still requires live comparative runs |
+| 5 | Student Management CRUD | ✅ Full React + Node + PostgreSQL implementation + search/filter + CSV export; hosted submission demo deployed |
+| 6 | Anthropic first call + CLI chatbot | ✅ CLI implementation; live provider call remains credential-dependent |
+| 7 | OpenAI/Gemini multi-provider CLI + benchmark | ✅ Multi-provider routing + benchmark path implemented; live benchmark remains credential-dependent |
+| 8 | Streaming + retry/error hygiene | ✅ Implemented |
+| 9 | Prompt caching / telemetry / codebase explainer | ✅ Telemetry + codebase explainer implemented; provider-specific live caching measurement remains credential-dependent |
+| 10 | Smart Doc Q&A | ✅ Full local implementation + hosted submission demo |
+| 11 | Embeddings + vector store RAG upgrade | ✅ Embedding adapter + local/vector retrieval path + top-3 retrieval |
+| 12 | Chunking comparison | ✅ Comparison report/framework |
+| 13 | Tool-use / function-calling agent | ✅ Calculator + web-fetch + save-note tool implementation |
+| 14 | Multi-step agent + framework comparison + memory | ✅ Pure-SDK agent architecture + framework comparison document; framework-specific live builds remain unverified |
+| 15 | Real-use-case agent | ✅ Standup-agent implementation/design + hosted agent submission demo |
+| 16 | Assigned real Groovy repo onboarding | ⏸ External company/client dependency |
+| 17 | First real PR | ⏸ External company/client dependency |
+| 18 | Review 3 cohort PRs | ⏸ External cohort dependency |
+| 19 | CI/CD + deploy | ✅ GitHub Actions CI + release preflight + Vercel production deployment |
+| 20–24 | Real client capstone | ⏸ External client/senior dependency |
+| 25 | Stage 1 assessment | ⏸ External assessment |
+| 26 | Result / Stage 2 allocation | ⏸ External process |
+| 27 | Stage 1 retro | ⏸ External process |
+| 28 | Stage 2 mentor pairing | ⏸ External process |
+| 29 | Stage 2 client project deep-dive | ⏸ External client dependency |
+| 30 | First Stage 2 sprint ticket | ⏸ External client dependency |
 
 ## Implemented coding set
 
@@ -45,25 +59,8 @@
 - Day 14 pure-SDK agent architecture and framework comparison.
 - Day 15 standup-assistant real-use-case agent design and tool implementation.
 - Day 19 GitHub Actions CI, Render configuration, and release preflight.
-- Repository-wide navigation and execution runbook.
+- Submission hub plus three self-contained Vercel mini-project demos.
 
-## Unique engineering additions
+## Evidence boundary
 
-- Day 2: keyboard-first command palette (`Ctrl/⌘+K`, `D/B/N/P`).
-- Day 3: prompt selection matrix.
-- Day 4: weighted 100-point model-selection scorecard.
-- Day 5: search/filter + CSV export.
-- Days 6–15: offline `mock` provider for zero-key CLI/streaming smoke checks.
-- Day 19: release preflight smoke gate in CI.
-
-## Verification boundary
-
-The repository contains exact local commands and health checks for runnable projects. Live provider/API verification is conditional on valid credentials. PostgreSQL CRUD verification requires a local PostgreSQL instance. Render deployment verification requires an actual connected Render/GitHub environment.
-
-## Requires external/company state and is intentionally not fabricated
-
-- Slack/cohort feedback and senior review
-- Assigned real client repository work (Days 16–18)
-- Real client capstone scope/repository and client feedback (Days 20–24)
-- Stage assessment/results and Stage 2 work (Days 25–30)
-- Live provider calls where API/billing access has not been provided
+The repository contains exact local commands and health checks for runnable projects. Live provider/API verification is conditional on valid credentials. PostgreSQL CRUD verification requires a local PostgreSQL instance. Senior review, Slack/cohort activity, assigned client repos, leadership judgment, and assessment results are intentionally not fabricated.
