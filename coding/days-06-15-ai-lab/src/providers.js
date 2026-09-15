@@ -12,9 +12,16 @@ const clients = {};
 if (process.env.ANTHROPIC_API_KEY) clients.anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 0 });
 if (process.env.OPENAI_API_KEY) clients.openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY, maxRetries: 0 });
 if (process.env.GEMINI_API_KEY) clients.gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-export function availableProviders(){ return Object.keys(clients); }
+
+export function availableProviders(){ return ['mock', ...Object.keys(clients)]; }
 
 export async function complete(provider, input, options = {}) {
+  if (provider === 'mock') {
+    return {
+      text: `[MOCK MODE] Received: ${input}\nUse a real provider key when live model output is required.`,
+      usage: { input_tokens: input.length, output_tokens: 18 }
+    };
+  }
   if (provider === 'anthropic') {
     if (!clients.anthropic) throw new Error('ANTHROPIC_API_KEY is not configured');
     return withExponentialBackoff(async()=>{const response=await clients.anthropic.messages.create({model:options.model||cfg.anthropicModel,max_tokens:options.maxTokens||1024,messages:[{role:'user',content:input}]});return{text:response.content.filter(b=>b.type==='text').map(b=>b.text).join(''),usage:response.usage||{}}});
@@ -31,6 +38,11 @@ export async function complete(provider, input, options = {}) {
 }
 
 export async function* stream(provider,input,options={}){
+  if(provider==='mock'){
+    const text = `[MOCK MODE] ${input}`;
+    for (const word of text.split(/\s+/)) { yield `${word} `; await new Promise(resolve => setTimeout(resolve, 8)); }
+    return;
+  }
   if(provider==='anthropic'){
     if(!clients.anthropic)throw new Error('ANTHROPIC_API_KEY is not configured');
     const s=await withExponentialBackoff(()=>clients.anthropic.messages.create({model:options.model||cfg.anthropicModel,max_tokens:options.maxTokens||1024,messages:[{role:'user',content:input}],stream:true}));
