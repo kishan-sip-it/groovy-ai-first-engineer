@@ -1,3 +1,5 @@
+<!-- READ THIS FIRST: this specification is linked to the executable agent in ../days-06-15-ai-lab. See ../../README.md and ../../RUNBOOK.md for navigation and execution. -->
+
 # Day 15 — Real-Use-Case Agent
 
 ## Use case
@@ -18,4 +20,12 @@ Standup assistant: turn raw team updates into a concise structured standup summa
 - Keep source wording traceable.
 - Human reviews before anything is sent externally.
 
-The pure tool loop is implemented in `coding/days-06-15-ai-lab/src/agent.js`.
+The pure tool loop is implemented in `../days-06-15-ai-lab/src/agent.js`.
+
+## Execution
+
+```bash
+cd ../days-06-15-ai-lab
+npm install
+npm run agent -- "Summarize these updates: yesterday fixed login; today finish tests; blockers none"
+```
