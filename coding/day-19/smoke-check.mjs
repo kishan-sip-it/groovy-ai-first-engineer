@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const root = path.resolve(process.cwd(), '..', '..', '..');
+const root = path.resolve(process.cwd(), '..', '..');
 const required = [
   'coding/day-05/student-crud/backend/package.json',
   'coding/day-05/student-crud/backend/schema.sql',
