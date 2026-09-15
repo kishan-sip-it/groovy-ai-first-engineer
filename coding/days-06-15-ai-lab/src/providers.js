@@ -13,7 +13,10 @@ if (process.env.ANTHROPIC_API_KEY) clients.anthropic = new Anthropic({ apiKey: p
 if (process.env.OPENAI_API_KEY) clients.openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY, maxRetries: 0 });
 if (process.env.GEMINI_API_KEY) clients.gemini = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-export function availableProviders(){ return ['mock', ...Object.keys(clients)]; }
+export function availableProviders(){
+  const configured = Object.keys(clients);
+  return configured.length ? configured : ['mock'];
+}
 
 export async function complete(provider, input, options = {}) {
   if (provider === 'mock') {
