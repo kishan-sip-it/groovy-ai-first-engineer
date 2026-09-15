@@ -1,4 +1,11 @@
+<!-- READ THIS FIRST: repository-wide navigation and execution commands live in ../../RUNBOOK.md and ../../README.md. -->
+
 # Hello AI — Day 1
+
+## Navigation
+
+- Repository map: [`../../README.md`](../../README.md)
+- Execution runbook: [`../../RUNBOOK.md`](../../RUNBOOK.md)
 
 ## Tool
 Cline
