@@ -110,3 +110,24 @@ Make only necessary fixes.
 Run the available verification commands.
 Return a release checklist with PASS/FAIL and exact evidence.
 ```
+
+## Day 3 enhancement — Prompt Selection Matrix
+
+Use this quick matrix before writing a prompt:
+
+| Situation | Start with | Add before execution |
+|---|---|---|
+| Unknown codebase | Inspect Before Implementing | file paths + constraints |
+| New feature | Focused Feature | acceptance + verification command |
+| Bug | Debug From Verified Evidence | exact log + reproduction |
+| Refactor | Refactor Safely | behavior that must not change |
+| API work | API Endpoint | request/response/error contract |
+| UI work | React UI Feature | UX states + accessibility |
+| LLM work | AI Integration | output schema + secret handling |
+| Review | Code Review | severity + evidence rule |
+| Onboarding | Repository Explainer | token budget + file-path citations |
+| Before merge | Final Verification Gate | exact test/build commands |
+
+### Prompt quality rule
+
+A strong engineering prompt should make **context, task, constraints, acceptance criteria, and verification** explicit. The goal is not a longer prompt; the goal is fewer hidden assumptions and a verifiable result.
