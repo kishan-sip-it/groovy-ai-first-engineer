@@ -68,7 +68,7 @@ The deployment configuration is in [`coding/day-19`](./coding/day-19). It is con
 
 ## Documentation navigation rule
 
-Every project-level README begins with a **READ THIS FIRST** instruction and points back to the relevant execution section. GitHub supports relative repository links, so these links continue to work when the repository is cloned locally. citeturn162228search0turn162228search2
+Every project-level README begins with a **READ THIS FIRST** instruction and points back to the relevant execution section. GitHub relative links keep these paths valid when the repository is cloned locally.
 
 ## Important prerequisites
 
@@ -79,3 +79,7 @@ API keys must stay in environment variables or a secret manager. Do not paste th
 ## Evidence / status
 
 See [`CODING_STATUS.md`](./CODING_STATUS.md) for the current implementation map and verification state.
+
+## One-command navigation
+
+For the complete execution map, open [`RUNBOOK.md`](./RUNBOOK.md).
