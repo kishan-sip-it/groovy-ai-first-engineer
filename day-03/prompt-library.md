@@ -1,3 +1,5 @@
+<!-- READ THIS FIRST: repository-wide navigation is ../../README.md; exact execution rules are ../../RUNBOOK.md. This file is documentation-only. -->
+
 # Prompt Library — 10 Reusable Engineering Templates
 
 ## 1. Inspect Before Implementing
