@@ -2,6 +2,20 @@
 
 > **READ THIS FIRST.** This repository is the navigation hub for the 30-Day AI-First Engineer onboarding work. For any question about what a folder does, how to run it, or where the execution command lives, start here and jump to the linked run section.
 
+## Submission links
+
+### Live Vercel demo hub
+
+**https://groovy-ai-gm994iph4-kishan11.vercel.app**
+
+The Vercel submission hub contains three deployable mini-project demos:
+
+- **Mini-Project 1 — Student Management CRUD**: [`/mini-project-1/`](./coding/days-06-15-ai-lab/vercel/mini-project-1/index.html)
+- **Mini-Project 2 — Smart Doc Q&A**: [`/mini-project-2/`](./coding/days-06-15-ai-lab/vercel/mini-project-2/index.html)
+- **Mini-Project 3 — Custom Agent**: [`/mini-project-3/`](./coding/days-06-15-ai-lab/vercel/mini-project-3/index.html)
+
+The hosted demos are intentionally self-contained for submission reliability. The original full implementations remain in the repository and are documented below.
+
 ## Repository map
 
 | Area | Purpose | Run / open |
@@ -17,23 +31,23 @@
 | [`coding/day-14/agent-comparison.md`](./coding/day-14/agent-comparison.md) | Agent implementation comparison | Documentation only |
 | [`coding/day-15/standup-agent.md`](./coding/day-15/standup-agent.md) | Real-use-case agent specification | Implementation lives in AI lab |
 | [`coding/day-19`](./coding/day-19) | GitHub Actions + Render deployment + release preflight | See project README |
+| [`CODING_STATUS.md`](./CODING_STATUS.md) | Evidence matrix for Days 1–30 | Current verification boundary |
 
 ## Unique engineering additions
 
-These enhancements are deliberately small, practical, and visible:
-
-- **Day 2:** keyboard-first command palette (`Ctrl/⌘+K`, `D/B/N/P`) for fast workspace navigation.
-- **Day 3:** prompt selection matrix that maps engineering situations to the right reusable prompt template.
-- **Day 4:** weighted 100-point LLM decision scorecard with reproducibility guidance.
+- **Day 2:** keyboard-first command palette (`Ctrl/⌘+K`, `D/B/N/P`).
+- **Day 3:** prompt selection matrix.
+- **Day 4:** weighted 100-point model-selection scorecard.
 - **Day 5:** searchable/filterable student admin view plus one-click CSV export.
-- **Days 6–15:** offline `mock` provider for no-key verification of CLI routing and streaming without provider credits.
-- **Day 19:** release preflight smoke gate executed by GitHub Actions before deployment.
+- **Days 6–15:** offline `mock` provider for no-key CLI/stream verification.
+- **Submission:** three self-contained Vercel mini-project demos linked from the live hub.
+- **Day 19:** release preflight smoke gate executed by GitHub Actions.
 
 ## Fast execution index
 
 ### Day 2 — TODO / Kanban app
 
-Open the separate repository: [groovy-day-02-todo-app](https://github.com/kishan-sip-it/groovy-day-02-todo-app). Its README contains the exact install, run, health-check, keyboard shortcut, and browser verification sequence.
+Open the separate repository: [groovy-day-02-todo-app](https://github.com/kishan-sip-it/groovy-day-02-todo-app).
 
 ### Day 5 — Student CRUD
 
@@ -44,11 +58,6 @@ npm run install:all
 # Configure PostgreSQL DATABASE_URL as described in README.md
 npm run dev
 ```
-
-Frontend: `http://localhost:5173`
-Backend health: `http://localhost:4100/api/health`
-
-Full instructions: [`coding/day-05/student-crud/README.md`](./coding/day-05/student-crud/README.md).
 
 ### Days 6–15 — AI Lab
 
@@ -71,33 +80,15 @@ npm run rag
 npm run bench
 ```
 
-Full setup, environment variables, provider selection, and examples are in [`coding/days-06-15-ai-lab/README.md`](./coding/days-06-15-ai-lab/README.md).
-
 ### Day 19 — CI/CD configuration
-
-The deployment configuration and release preflight are in [`coding/day-19`](./coding/day-19).
-
-Local preflight:
 
 ```bash
 cd coding/day-19
 node smoke-check.mjs
 ```
 
-## Documentation navigation rule
+## Submission rule
 
-Every project-level README begins with a **READ THIS FIRST** instruction and points back to the relevant execution section. GitHub relative links are used for repository navigation because they remain valid in clones. citeturn383458search0turn383458search2
+All repository/code tasks that can be completed without company-controlled state should be represented with working code, documentation, or a runnable demo. Items that require senior review, a real Groovy/client repository, leadership judgment, cohort access, or formal assessment remain explicitly unclaimed.
 
-## Important prerequisites
-
-Some checklist work depends on resources that cannot be safely fabricated in a personal trial repository: company Slack/Teams access, paid provider credits/API keys, an assigned Groovy client repository, senior review, deployment credentials, and the Stage 1 assessment. Those items remain explicitly marked rather than represented as completed evidence.
-
-API keys must stay in environment variables or a secret manager. Do not paste them into GitHub, README files, screenshots, or chat.
-
-## Evidence / status
-
-See [`CODING_STATUS.md`](./CODING_STATUS.md) for the current implementation map and verification state.
-
-## One-command navigation
-
-For the complete execution map, open [`RUNBOOK.md`](./RUNBOOK.md).
+API keys stay in environment variables or a secret manager. Never commit secrets to GitHub, README files, screenshots, or chat.
