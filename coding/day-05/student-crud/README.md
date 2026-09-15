@@ -13,10 +13,31 @@ npm install
 npm run install:all
 ```
 
-1. Create a PostgreSQL database named `student_crud`.
-2. Run `backend/schema.sql` against it.
-3. Set `DATABASE_URL` in the backend environment.
-4. Start the app:
+### PostgreSQL setup
+
+The API reads `DATABASE_URL` from `backend/.env`.
+
+Example:
+
+```env
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/student_crud
+PORT=4100
+```
+
+If PostgreSQL is installed locally but not running:
+
+```bash
+sudo systemctl start postgresql
+```
+
+Create the database, then load the schema:
+
+```bash
+sudo -u postgres createdb student_crud 2>/dev/null || true
+sudo -u postgres psql -d student_crud -f backend/schema.sql
+```
+
+Then start the app:
 
 ```bash
 npm run dev
@@ -24,8 +45,16 @@ npm run dev
 
 Open:
 
-- Frontend: `http://localhost:5173`
+- Frontend: `http://localhost:5173` (or the next free Vite port shown in the terminal)
 - Backend health: `http://localhost:4100/api/health`
+
+Expected health response:
+
+```json
+{"status":"ok","service":"student-crud-api"}
+```
+
+Expected browser result: the Student Management table should load the seeded students from `backend/schema.sql`, and Add/Edit/Delete should work without a database connection error.
 
 Run tests:
 
