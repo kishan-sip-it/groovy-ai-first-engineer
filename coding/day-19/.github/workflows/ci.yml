@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate Day 5 backend
+        working-directory: coding/day-05/student-crud/backend
+        run: npm install
+      - name: Validate AI lab
+        working-directory: coding/days-06-15-ai-lab
+        run: npm install
