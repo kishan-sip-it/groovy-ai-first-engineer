@@ -16,15 +16,21 @@ Add API keys only to local `.env`; never commit them.
 ### Commands
 
 ```bash
+npm run chat -- --provider mock "Explain RAG in 3 points"
 npm run chat -- --provider anthropic "Explain RAG in 3 points"
 npm run chat -- --provider openai "Explain REST in 3 points"
 npm run chat -- --provider gemini "Explain embeddings in 3 points"
+npm run stream -- --provider mock "Explain streaming in 5 lines"
 npm run stream -- --provider anthropic "Explain streaming in 5 lines"
 npm run explain -- .
 npm run agent -- "Calculate 17*23 and save the result as a note"
 npm run rag -- "What is the main idea?" --file ./sample.txt
 npm run bench
 ```
+
+### Zero-key enhancement
+
+`mock` is an offline provider added for this onboarding lab. It lets you verify the CLI, routing, telemetry flow, and streaming UX without API credits or secrets. Switch to Anthropic/OpenAI/Gemini only when the corresponding environment key is available.
 
 ### Verify
 
@@ -34,6 +40,7 @@ npm run bench
 - `agent`: calculator / web-fetch / save-note tool path.
 - `rag`: document ingestion and source-aware retrieval path.
 - `bench`: multi-provider benchmark path.
+- `mock`: deterministic no-key smoke path.
 
 ### Checklist mapping
 
