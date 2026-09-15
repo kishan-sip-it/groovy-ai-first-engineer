@@ -1,0 +1,7 @@
+{
+  "name":"day-14-framework-agents",
+  "private":true,
+  "type":"module",
+  "scripts":{"langchain":"node langchain-agent.mjs","llamaindex":"node llamaindex-agent.mjs"},
+  "dependencies":{"langchain":"latest","zod":"latest","llamaindex":"latest","@llamaindex/openai":"latest","dotenv":"latest"}
+}
