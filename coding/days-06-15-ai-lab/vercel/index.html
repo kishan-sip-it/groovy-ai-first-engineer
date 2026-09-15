@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Groovy AI Lab • Days 6–15</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#eef2ff;background:#0b1020}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#19244d 0,#0b1020 52%);display:grid;place-items:center;padding:24px}.card{width:min(820px,100%);background:rgba(15,23,42,.82);border:1px solid #2c3a63;border-radius:24px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.35)}h1{margin:0 0 8px;font-size:32px}p{color:#a9b5d5}textarea,select,button{font:inherit}textarea{width:100%;min-height:150px;resize:vertical;background:#09111f;color:#fff;border:1px solid #334267;border-radius:14px;padding:14px;margin:14px 0}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}select,button{border:1px solid #334267;border-radius:12px;padding:10px 14px;background:#111a2f;color:#fff}button{cursor:pointer;background:#5b7cfa;border-color:#6f8cff;font-weight:700}.out{white-space:pre-wrap;background:#09111f;border:1px solid #263555;border-radius:14px;padding:16px;min-height:120px;margin-top:16px}.meta{font-size:13px;color:#7f90ba;margin-top:10px}@media(max-width:560px){.card{padding:20px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<main class="card">
+  <h1>Groovy AI Lab</h1>
+  <p>Days 6–15 AI lab, exposed as a small Vercel web app. Mock mode works without API keys.</p>
+  <div class="row"><label for="provider">Provider</label><select id="provider"><option value="mock">Mock (no key)</option><option value="openai">OpenAI</option><option value="anthropic">Anthropic</option><option value="gemini">Gemini</option></select><button id="send">Stream response</button></div>
+  <textarea id="input">Explain RAG in 3 points.</textarea>
+  <div id="output" class="out">Your response will appear here.</div>
+  <div id="meta" class="meta"></div>
+</main>
+<script>
+const input=document.querySelector('#input'),provider=document.querySelector('#provider'),output=document.querySelector('#output'),meta=document.querySelector('#meta'),send=document.querySelector('#send');
+send.onclick=async()=>{output.textContent='';meta.textContent='';send.disabled=true;try{const r=await fetch('/api/stream',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({input:input.value,provider:provider.value})});if(!r.ok)throw new Error('Request failed');const reader=r.body.getReader(),decoder=new TextDecoder();let buf='';while(true){const {value,done}=await reader.read();if(done)break;buf+=decoder.decode(value,{stream:true});const events=buf.split('\n\n');buf=events.pop();for(const event of events){const line=event.split('\n').find(x=>x.startsWith('data: '));if(!line)continue;const data=line.slice(6);if(data==='[DONE]')continue;const payload=JSON.parse(data);if(payload.error)throw new Error(payload.error);if(payload.chunk)output.textContent+=payload.chunk;}}meta.textContent='Provider: '+provider.value+' • Server-side API keys only'}catch(e){output.textContent=e.message}finally{send.disabled=false}};
+</script>
+</body>
+</html>
