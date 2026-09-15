@@ -20,3 +20,6 @@ jobs:
       - name: Validate AI lab
         working-directory: coding/days-06-15-ai-lab
         run: npm install
+      - name: Release preflight
+        working-directory: coding/day-19
+        run: node smoke-check.mjs
