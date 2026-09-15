@@ -1,0 +1,5 @@
+{
+  "name":"groovy-days-06-15-ai-lab","private":true,"type":"module","version":"1.0.0",
+  "scripts":{"chat":"node src/index.js chat","stream":"node src/index.js stream","explain":"node src/index.js explain","agent":"node src/index.js agent","rag":"node src/index.js rag","bench":"node src/index.js bench"},
+  "dependencies":{"@anthropic-ai/sdk":"^0.68.0","@google/genai":"^1.17.0","openai":"^6.1.0","commander":"^14.0.1","dotenv":"^17.2.2","pdf-parse":"^2.4.5","zod":"^4.1.8"}
+}
