@@ -1,3 +1,5 @@
+<!-- READ THIS FIRST: this is a report-only deliverable. Use ../../README.md and ../../RUNBOOK.md for repository navigation and execution. -->
+
 # Day 4 — LLM Comparison Report
 
 ## Evaluation protocol
@@ -19,4 +21,14 @@ Use the same five prompts across Claude, ChatGPT/OpenAI, and Gemini. Record corr
 - Prefer lower cost when quality and reliability are comparable.
 - Prefer the provider whose tooling and structured-output behavior fit the application.
 
-The executable multi-provider client for Days 6–9 is in `coding/days-06-15-ai-lab`.
+The executable multi-provider client for Days 6–9 is in `../days-06-15-ai-lab`.
+
+## Execution
+
+This file itself is documentation-only. The executable comparison path is the AI lab benchmark:
+
+```bash
+cd ../days-06-15-ai-lab
+npm install
+npm run bench
+```
