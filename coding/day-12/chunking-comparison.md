@@ -1,3 +1,5 @@
+<!-- READ THIS FIRST: report-only deliverable. Use ../../README.md and ../../RUNBOOK.md for navigation and runtime commands. -->
+
 # Day 12 — Chunking Comparison
 
 The local RAG implementation uses overlapping word-window chunks by default. The comparison framework below covers the four strategies required by the checklist.
@@ -19,4 +21,14 @@ Run the same question set against each strategy and record:
 - latency
 - token/embedding cost
 
-The Day 10–11 baseline is in `coding/days-06-15-ai-lab/src/rag.js`.
+The Day 10–11 baseline is in `../days-06-15-ai-lab/src/rag.js`.
+
+## Execution
+
+This report is documentation-only. To exercise the underlying RAG implementation:
+
+```bash
+cd ../days-06-15-ai-lab
+npm install
+npm run rag -- "What is the main idea?" --file ./sample.txt
+```
